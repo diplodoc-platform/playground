@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@diplodoc/markdown-it-markdown-renderer": "^0.6.0",
-    "@doc-tools/transform": "^3.0.0",
+    "@doc-tools/transform": "^3.8.5",
     "@gravity-ui/uikit": "^5.5.0",
     "autoprefixer": "^10.4.15",
     "esbuild-sass-plugin": "^2.12.0",
