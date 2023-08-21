@@ -61,7 +61,7 @@ function Playground() {
   };
 
   useEffect(() => {
-    generate(input);
+    generate(outputActive);
   }, [input]);
 
   return (
