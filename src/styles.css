@@ -1,0 +1,77 @@
+@import '@gravity-ui/uikit/styles/mixins.scss';
+@import '@gravity-ui/uikit/styles/themes/_index.scss';
+@import '@gravity-ui/uikit/styles/styles.scss';
+@import '@gravity-ui/uikit/styles/fonts.scss';
+
+.g-root_theme_light {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+
+  --g-color-base-brand: #57a5a3;
+  --g-color-base-brand-hover: #539796;
+  --g-color-base-selection: #d6f8f8;
+  --g-color-base-selection-hover: #abf1ef;
+  --g-color-line-brand: #57a5a3;
+  --g-color-text-brand: #4a7d7c;
+  --g-color-text-link: #4a7d7c;
+  --g-color-text-link-hover: #426463;
+
+  --g-color-private-color-50: rgba(112,205,181,0.1);
+  --g-color-private-color-100: rgba(112,205,181,0.15);
+  --g-color-private-color-150: rgba(112,205,181,0.2);
+  --g-color-private-color-200: rgba(112,205,181,0.3);
+  --g-color-private-color-250: rgba(112,205,181,0.4);
+  --g-color-private-color-300: rgba(112,205,181,0.5);
+  --g-color-private-color-350: rgba(112,205,181,0.6);
+  --g-color-private-color-400: rgba(112,205,181,0.7);
+  --g-color-private-color-450: rgba(112,205,181,0.8);
+  --g-color-private-color-500: rgba(112,205,181,0.9);
+
+  --g-color-private-color-50-solid: rgb(241,250,248);
+  --g-color-private-color-100-solid: rgb(234,248,244);
+  --g-color-private-color-150-solid: rgb(226,245,240);
+  --g-color-private-color-200-solid: rgb(212,240,233);
+  --g-color-private-color-250-solid: rgb(198,235,225);
+  --g-color-private-color-300-solid: rgb(184,230,218);
+  --g-color-private-color-350-solid: rgb(169,225,211);
+  --g-color-private-color-400-solid: rgb(155,220,203);
+  --g-color-private-color-450-solid: rgb(141,215,196);
+  --g-color-private-color-500-solid: rgb(126,210,188);
+  --g-color-private-color-550-solid: rgb(112,205,181);
+  --g-color-private-color-600-solid: rgb(105,189,168);
+  --g-color-private-color-650-solid: rgb(99,173,155);
+  --g-color-private-color-700-solid: rgb(92,157,142);
+  --g-color-private-color-750-solid: rgb(85,141,129);
+  --g-color-private-color-800-solid: rgb(79,125,116);
+  --g-color-private-color-850-solid: rgb(72,108,103);
+  --g-color-private-color-900-solid: rgb(65,92,90);
+  --g-color-private-color-950-solid: rgb(58,76,77);
+  --g-color-private-color-1000-solid: rgb(55,68,71);
+}
+
+.callout__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: calc(var(--g-text-display-4-font-size) * 2) 0;
+
+  background-color: var(--g-color-base-brand) !important;
+  opacity: .75;
+
+  text-transform: uppercase;
+}
+
+.callout__heading {
+  font-weight: 100 !important;
+  letter-spacing: 2.5px;
+
+  color: white;
+}
+
+.area__card {
+  padding: var(--g-text-body-1-font-size);
+}
+
+.area__tabs {
+  text-transform: uppercase;
+}
