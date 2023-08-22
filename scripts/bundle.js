@@ -75,14 +75,9 @@ async function buildTS() {
 async function buildCSS() {
   return esbuild.build({
         entryPoints: [
-/*
-'@gravity-ui/uikit/styles/fonts.scss',
-'@gravity-ui/uikit/styles/styles.css',
-'@gravity-ui/uikit/styles/themes/_index.scss',
-*/
-'src/styles.css',
-...gravitycss,
-],
+          'src/styles.css',
+          ...gravitycss,
+        ],
         minify: true,
         bundle: true,
         outdir: 'build',
