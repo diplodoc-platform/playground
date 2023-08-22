@@ -8,6 +8,8 @@ import {OutputArea} from './output-area';
 import {useTabs} from './useTabs';
 import {generateMD, generateHTML, generateTokens} from './generators';
 
+import '@doc-tools/transform/dist/js/yfm.js'
+
 const App = () => {
     return(<>
       <Container>
@@ -28,6 +30,8 @@ function Playground() {
       setGenerated(generateHTML(input));
     } else if (active === 'tokens') {
       setGenerated(generateTokens(input));
+    } else if (active === 'preview') {
+      setGenerated(generateHTML(input));
     } else {
       setGenerated(input);
     }
@@ -48,11 +52,12 @@ function Playground() {
       handleSetOutputAreaTabActive
   ] = useTabs({
     items: [
-      { id: 'markdown', title: 'markdown' },
+      { id: 'preview', title: 'html preview' },
       { id: 'html', title: 'html' },
-      { id: 'tokens', title: 'tokens' }
+      { id: 'markdown', title: 'markdown' },
+      { id: 'tokens', title: 'tokens' },
     ],
-    initial: 'markdown',
+    initial: 'preview',
     onSetActive: generate,
   });
 

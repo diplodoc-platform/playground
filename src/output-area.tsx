@@ -30,12 +30,14 @@ function OutputArea(props: OutputAreaProps) {
           </Col>
           <Col s="12" />
           <Col s="12">
-            <TextArea
-              onUpdate={handleInputChange}
-              value={output} 
-              minRows={10}
-              size="l"
-            />
+            {tabActive === 'preview'
+                ? <div className="yfm" dangerouslySetInnerHTML={{__html: output}}></div>
+                : <TextArea
+                    onUpdate={handleInputChange}
+                    value={output} 
+                    minRows={10}
+                    size="l" />
+            }
           </Col>
         </Row>
       </Card>

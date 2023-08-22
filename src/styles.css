@@ -2,6 +2,7 @@
 @import '@gravity-ui/uikit/styles/themes/_index.scss';
 @import '@gravity-ui/uikit/styles/styles.scss';
 @import '@gravity-ui/uikit/styles/fonts.scss';
+@import '@doc-tools/transform/dist/css/yfm.css';
 
 .g-root_theme_light {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
