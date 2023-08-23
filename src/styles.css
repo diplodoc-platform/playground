@@ -73,8 +73,19 @@
   padding: var(--g-text-body-1-font-size);
 }
 
+.area__card > section {
+    min-height: 160px !important;
+    height: 100%;
+}
+
 .area__tabs {
   text-transform: uppercase;
+}
+
+.monaco-scrollable-element {
+  left: 0 !important;
+  min-width: 100% !important;
+  min-width: 100% !important;
 }
 
 /* yfm preview */

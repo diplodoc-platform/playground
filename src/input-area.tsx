@@ -1,5 +1,7 @@
+import {useEffect, useState, useRef} from 'react'
 import {TextArea, Tabs, TabsProps, Card, Row, Col, Flex} from '@gravity-ui/uikit';
 
+import Editor, {Monaco} from '@monaco-editor/react';
 
 export type InputAreaProps = {
   handleSelectTab: (active: string) => void;
@@ -11,8 +13,18 @@ export type InputAreaProps = {
 }
 
 function InputArea(props: InputAreaProps) {
+  const monacoRef = useRef(null);
 
   const {tabActive, tabItems, input, handleInputChange, handleSelectTab} = props;
+
+  const editorOptions = {minimap: {enabled: false}, lineNumbers: "off"};
+
+  const lines = monacoRef?.current?.getModel()?.getLineCount() ?? 10; 
+  const height = `${lines * 16}px`;
+
+  const handleOnMount = (editor, monaco) => {
+    monacoRef.current = editor;
+  }
 
   return (
     <Col s="6">
@@ -23,13 +35,9 @@ function InputArea(props: InputAreaProps) {
           </Col>
           <Col s="12"/>
           <Col s="12">
-            <TextArea
-              onUpdate={handleInputChange}
-              hasClear={true}
-              minRows={10}
-              value={input}
-              size="l"
-            />
+            <Card size="m" className="area__card">
+                <Editor height={height} defaultLanguage="markdown" defaultValue={input} onChange={handleInputChange} options={editorOptions} onMount={handleOnMount} />
+            </Card>
           </Col>
         </Row>
       </Card>
