@@ -10,6 +10,19 @@ import {generateMD, generateHTML, generateTokens} from './generators';
 
 import '@doc-tools/transform/dist/js/yfm.js'
 
+(window as any).MonacoEnvironment = {
+  getWorker: (workerId: string, label: string) => {
+    if (label === 'json') {
+      return new Worker(
+        // @ts-ignore
+        new URL('monaco-editor/esm/vs/language/json/json.worker?worker', import.meta.url),
+      );
+    }
+    // @ts-ignore
+    return new Worker(new URL('monaco-editor/esm/vs/editor/editor.worker?worker', import.meta.url));
+  },
+};
+
 const App = () => {
     return(<>
       <Container>
