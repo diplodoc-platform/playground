@@ -76,3 +76,8 @@
 .area__tabs {
   text-transform: uppercase;
 }
+
+/* yfm preview */
+.area__yfm {
+    min-height: 186px;
+}
