@@ -8,7 +8,7 @@ import {OutputArea} from './output-area';
 import {useTabs} from './useTabs';
 import {generateMD, generateHTML, generateTokens} from './generators';
 
-import '@doc-tools/transform/dist/js/yfm.js'
+import './styles.css';
 
 (window as any).MonacoEnvironment = {
   getWorker: (workerId: string, label: string) => {
@@ -101,5 +101,5 @@ function Playground() {
   );
 }
 
-export {App};
-export default {App};
+export {App, Playground};
+export default {App, Playground};

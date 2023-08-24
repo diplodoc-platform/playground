@@ -1,3 +1,4 @@
+const {readFileSync, promises: {readFile}} = require('fs');
 const path = require('path');
 
 const esbuild = require('esbuild');
@@ -9,28 +10,23 @@ const postcss = require('postcss');
 const polyfillNode = require("esbuild-plugin-polyfill-node").polyfillNode;
 const {sassPlugin} = require('esbuild-sass-plugin');
 
-const gravityPathBase = 'node_modules/@gravity-ui/uikit/build/cjs/components';
-
-const gravitycss = [
-'layout/variables.css',
-'layout/Row/Row.css',
-'layout/Col/Col.css',
-'layout/Container/Container.css',
-'Card/Card.css',
-'variables.css',
-'Tabs/Tabs.css',
-'controls/mixins.css',
-'controls/variables.css',
-'controls/TextArea/TextArea.css',
-].map(relpath => path.join(gravityPathBase, relpath));
-
 const configuredSassPlugin = sassPlugin({
     cssImports: true,
-    async transform(source) {
-        return (await postcss([
+    async transform(source, resolve, filepath) {
+        source = source.replace(/(?:^@import\s(?:'|")@(.+)(?:'|");)/gmui, (_, group) => {
+          const css = readFileSync(path.join('node_modules', '@'+group), 'utf8');
+
+          return '\n\n' + css + '\n\n';
+        });
+
+        const config = {from: filepath};
+
+        const res = await postcss([
             autoprefixer({cascade: false}),
             postcssPresetEnv({stage: 0}),
-        ]).process(source, {from: undefined})).css;
+        ]).process(source, config);
+
+        return res.css;
     },
 });
 
@@ -62,25 +58,5 @@ const ts = ({entryPoints, outfile, outdir} = {}) => {
     return config;
 }
 
-const css = ({entryPoints, outfile, outdir} = {}) => {
-    entryPoints = {
-        ...(entryPoints ?? {}),
-        ...gravitycss,
-    };
-
-    const config = {
-        ...common,
-        plugins: [configuredSassPlugin],
-    }
-
-    if (outdir) {
-        config.outdir = outdir;
-    } else {
-        config.outfile = outfile;
-    }
-
-    return config;
-}
-
-module.exports = {ts, css};
-exports.default = {ts, css};
+module.exports = {ts};
+exports.default = {ts};

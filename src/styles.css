@@ -1,52 +1,46 @@
-@import '@gravity-ui/uikit/styles/mixins.scss';
-@import '@gravity-ui/uikit/styles/themes/_index.scss';
-@import '@gravity-ui/uikit/styles/styles.scss';
-@import '@gravity-ui/uikit/styles/fonts.scss';
-@import '@doc-tools/transform/dist/css/yfm.css';
-
 .g-root_theme_light {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif !important;
 
-  --g-color-base-brand: #57a5a3;
-  --g-color-base-brand-hover: #539796;
-  --g-color-base-selection: #d6f8f8;
-  --g-color-base-selection-hover: #abf1ef;
-  --g-color-line-brand: #57a5a3;
-  --g-color-text-brand: #4a7d7c;
-  --g-color-text-link: #4a7d7c;
-  --g-color-text-link-hover: #426463;
+  --g-color-base-brand: #57a5a3 !important;
+  --g-color-base-brand-hover: #539796 !important;
+  --g-color-base-selection: #d6f8f8 !important;
+  --g-color-base-selection-hover: #abf1ef !important;
+  --g-color-line-brand: #57a5a3 !important;
+  --g-color-text-brand: #4a7d7c !important;
+  --g-color-text-link: #4a7d7c !important;
+  --g-color-text-link-hover: #426463 !important;
 
-  --g-color-private-color-50: rgba(112,205,181,0.1);
-  --g-color-private-color-100: rgba(112,205,181,0.15);
-  --g-color-private-color-150: rgba(112,205,181,0.2);
-  --g-color-private-color-200: rgba(112,205,181,0.3);
-  --g-color-private-color-250: rgba(112,205,181,0.4);
-  --g-color-private-color-300: rgba(112,205,181,0.5);
-  --g-color-private-color-350: rgba(112,205,181,0.6);
-  --g-color-private-color-400: rgba(112,205,181,0.7);
-  --g-color-private-color-450: rgba(112,205,181,0.8);
-  --g-color-private-color-500: rgba(112,205,181,0.9);
+  --g-color-private-color-50: rgba(112,205,181,0.1) !important;
+  --g-color-private-color-100: rgba(112,205,181,0.15) !important;
+  --g-color-private-color-150: rgba(112,205,181,0.2) !important;
+  --g-color-private-color-200: rgba(112,205,181,0.3) !important;
+  --g-color-private-color-250: rgba(112,205,181,0.4) !important;
+  --g-color-private-color-300: rgba(112,205,181,0.5) !important;
+  --g-color-private-color-350: rgba(112,205,181,0.6) !important;
+  --g-color-private-color-400: rgba(112,205,181,0.7) !important;
+  --g-color-private-color-450: rgba(112,205,181,0.8) !important;
+  --g-color-private-color-500: rgba(112,205,181,0.9) !important;
 
-  --g-color-private-color-50-solid: rgb(241,250,248);
-  --g-color-private-color-100-solid: rgb(234,248,244);
-  --g-color-private-color-150-solid: rgb(226,245,240);
-  --g-color-private-color-200-solid: rgb(212,240,233);
-  --g-color-private-color-250-solid: rgb(198,235,225);
-  --g-color-private-color-300-solid: rgb(184,230,218);
-  --g-color-private-color-350-solid: rgb(169,225,211);
-  --g-color-private-color-400-solid: rgb(155,220,203);
-  --g-color-private-color-450-solid: rgb(141,215,196);
-  --g-color-private-color-500-solid: rgb(126,210,188);
-  --g-color-private-color-550-solid: rgb(112,205,181);
-  --g-color-private-color-600-solid: rgb(105,189,168);
-  --g-color-private-color-650-solid: rgb(99,173,155);
-  --g-color-private-color-700-solid: rgb(92,157,142);
-  --g-color-private-color-750-solid: rgb(85,141,129);
-  --g-color-private-color-800-solid: rgb(79,125,116);
-  --g-color-private-color-850-solid: rgb(72,108,103);
-  --g-color-private-color-900-solid: rgb(65,92,90);
-  --g-color-private-color-950-solid: rgb(58,76,77);
-  --g-color-private-color-1000-solid: rgb(55,68,71);
+  --g-color-private-color-50-solid: rgb(241,250,248) !important;
+  --g-color-private-color-100-solid: rgb(234,248,244) !important;
+  --g-color-private-color-150-solid: rgb(226,245,240) !important;
+  --g-color-private-color-200-solid: rgb(212,240,233) !important;
+  --g-color-private-color-250-solid: rgb(198,235,225) !important;
+  --g-color-private-color-300-solid: rgb(184,230,218) !important;
+  --g-color-private-color-350-solid: rgb(169,225,211) !important;
+  --g-color-private-color-400-solid: rgb(155,220,203) !important;
+  --g-color-private-color-450-solid: rgb(141,215,196) !important;
+  --g-color-private-color-500-solid: rgb(126,210,188) !important;
+  --g-color-private-color-550-solid: rgb(112,205,181) !important;
+  --g-color-private-color-600-solid: rgb(105,189,168) !important;
+  --g-color-private-color-650-solid: rgb(99,173,155) !important;
+  --g-color-private-color-700-solid: rgb(92,157,142) !important;
+  --g-color-private-color-750-solid: rgb(85,141,129) !important;
+  --g-color-private-color-800-solid: rgb(79,125,116) !important;
+  --g-color-private-color-850-solid: rgb(72,108,103) !important;
+  --g-color-private-color-900-solid: rgb(65,92,90) !important;
+  --g-color-private-color-950-solid: rgb(58,76,77) !important;
+  --g-color-private-color-1000-solid: rgb(55,68,71) !important;
 }
 
 .callout__card {
@@ -78,6 +72,10 @@
     height: 100%;
 }
 
+.g-text-area__control {
+    min-height: 188px !important;
+}
+
 .area__tabs {
   text-transform: uppercase;
 }
@@ -90,5 +88,5 @@
 
 /* yfm preview */
 .area__yfm {
-    min-height: 186px;
+    min-height: 188px;
 }

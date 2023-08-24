@@ -30,9 +30,4 @@ const {generateHTML} = require('../src/index.html.js');
         entryPoints: ['src/index.tsx'],
         outfile: path.join(outdir, 'index.js'),
     }));
-
-    await esbuild.build(configs.css({
-        entryPoints: ['src/styles.css'],
-        outdir,
-    }));
 })();

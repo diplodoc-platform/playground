@@ -1,0 +1,12 @@
+@import '@gravity-ui/uikit/styles/styles.css';
+@import '@doc-tools/transform/dist/css/yfm.css';
+@import '@gravity-ui/uikit/build/cjs/components/variables.css';
+@import '@gravity-ui/uikit/build/cjs/components/layout/variables.css';
+@import '@gravity-ui/uikit/build/cjs/components/layout/Row/Row.css';
+@import '@gravity-ui/uikit/build/cjs/components/layout/Col/Col.css';
+@import '@gravity-ui/uikit/build/cjs/components/layout/Container/Container.css';
+@import '@gravity-ui/uikit/build/cjs/components/Card/Card.css';
+@import '@gravity-ui/uikit/build/cjs/components/Tabs/Tabs.css';
+@import '@gravity-ui/uikit/build/cjs/components/controls/mixins.css';
+@import '@gravity-ui/uikit/build/cjs/components/controls/variables.css';
+@import '@gravity-ui/uikit/build/cjs/components/controls/TextArea/TextArea.css';
