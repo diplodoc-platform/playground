@@ -3,8 +3,6 @@ import {ThemeProvider} from '@gravity-ui/uikit';
 
 import {App} from './app';
 
-(window as any).require = (a: any) => {};
-
 const container = document.getElementById('app');
 const root = createRoot(container);
 

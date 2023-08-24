@@ -14,12 +14,10 @@ import '@doc-tools/transform/dist/js/yfm.js'
   getWorker: (workerId: string, label: string) => {
     if (label === 'json') {
       return new Worker(
-        // @ts-ignore
-        new URL('monaco-editor/esm/vs/language/json/json.worker?worker', import.meta.url),
+        new URL('monaco-editor/esm/vs/language/json/json.worker?worker', 'monaco-worker'),
       );
     }
-    // @ts-ignore
-    return new Worker(new URL('monaco-editor/esm/vs/editor/editor.worker?worker', import.meta.url));
+    return new Worker(new URL('monaco-editor/esm/vs/editor/editor.worker?worker', 'monaco-worker'));
   },
 };
 
