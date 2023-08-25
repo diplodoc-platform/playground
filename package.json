@@ -1,17 +1,41 @@
 {
-  "name": "diplodoc-playground",
+  "name": "@diplodoc/playground",
   "version": "0.0.0",
-  "description": "",
-  "main": "bundle/index.js",
-  "scripts": {
-    "bundle": "node scripts/bundle.js",
-    "pages": "node scripts/pages.js",
-    "dev": "node scripts/dev.js"
+  "description": "diplodoc markdown playground",
+  "homepage": "https://github.com/diplodoc-platform/playground",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diplodoc-platform/playground.git"
+  },
+  "bugs": {
+    "url": "https://github.com/diplodoc-platform/playground/issues",
+    "email": "morozov.kirill.moki@gmail.com"
   },
   "author": {
     "name": "moki",
     "email": "morozov.kirill.moki@gmail.com",
     "url": "github.com/moki"
+  },
+  "keywords": [
+    "diplodoc",
+    "markdown-it",
+    "markdown",
+    "md",
+    "parser",
+    "generator",
+    "playground",
+    "sandbox",
+    "renderer",
+    "html",
+    "debug",
+    "react",
+    "component"
+  ],
+  "main": "bundle/index.js",
+  "scripts": {
+    "bundle": "node scripts/bundle.js",
+    "pages": "node scripts/pages.js",
+    "dev": "node scripts/dev.js"
   },
   "license": "MIT",
   "peerDependencies": {
@@ -31,8 +55,6 @@
     "@types/react-dom": "^18.2.5",
     "postcss": "^8.4.28",
     "postcss-preset-env": "^9.1.1",
-    "postcss-scss": "^4.0.7",
-    "punycode": "^2.3.0",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "autoprefixer": "^10.4.15",
     "esbuild": "^0.18.2",

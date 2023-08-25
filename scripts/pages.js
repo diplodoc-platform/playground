@@ -8,7 +8,7 @@ const {generateHTML} = require('../src/index.html.js');
 
 (async () => {
     const outdir = 'docs';
-    const projectName = 'diplodoc-demo';
+    const projectName = 'playground';
     
     try {
         await rm(outdir, {recursive: true});

@@ -17,7 +17,7 @@ function InputArea(props: InputAreaProps) {
 
   const {tabActive, tabItems, input, handleInputChange, handleSelectTab} = props;
 
-  const editorOptions = {minimap: {enabled: false}, lineNumbers: "off"};
+  const editorOptions = {minimap: {enabled: false}, lineNumbers: "off" as const};
 
   const lines = monacoRef?.current?.getModel()?.getLineCount() ?? 10; 
   const height = `${lines * 16}px`;
