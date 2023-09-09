@@ -1,5 +1,5 @@
 import {useCallback, useState, useEffect}  from 'react';
-import {TextArea, Tabs, TabsProps, Card, Text, Container, Row, Col, Flex} from '@gravity-ui/uikit';
+import {Container, Row, Col} from '@gravity-ui/uikit';
 
 import {CallOut} from './callout';
 import {InputArea} from './input-area';
@@ -11,7 +11,7 @@ import {generateMD, generateHTML, generateTokens} from './generators';
 import './styles.css';
 
 (window as any).MonacoEnvironment = {
-  getWorker: (workerId: string, label: string) => {
+  getWorker: (_workerId: string, label: string) => {
     if (label === 'json') {
       return new Worker(
         new URL('monaco-editor/esm/vs/language/json/json.worker?worker', 'monaco-worker'),
@@ -72,8 +72,8 @@ function Playground() {
     onSetActive: generate,
   });
 
-  const handleInputChange = (input: string) => {
-    setInput(input);
+  const handleInputChange = (input?: string | undefined) => {
+    setInput(input || '');
   };
 
   useEffect(() => {

@@ -13,7 +13,7 @@ function OutputArea(props: OutputAreaProps) {
   let {output, tabItems, tabActive, handleSelectTab, handleInputChange} = props;
 
   if (!handleInputChange) {
-    handleInputChange = (a: string) => {}
+    handleInputChange = () => {}
   }
 
   return (

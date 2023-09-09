@@ -35,7 +35,8 @@
   "scripts": {
     "bundle": "node scripts/bundle.js",
     "pages": "node scripts/pages.js",
-    "dev": "node scripts/dev.js"
+    "dev": "node scripts/dev.js",
+    "typecheck": "tsc -p ."
   },
   "license": "MIT",
   "peerDependencies": {
@@ -47,6 +48,7 @@
   "devDependencies": {
     "@doc-tools/transform": "^3.8.5",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@gravity-ui/tsconfig": "^1.0.0",
     "@gravity-ui/uikit": "^5.5.0",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",

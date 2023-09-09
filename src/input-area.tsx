@@ -1,19 +1,20 @@
-import {useEffect, useState, useRef} from 'react'
-import {TextArea, Tabs, TabsProps, Card, Row, Col, Flex} from '@gravity-ui/uikit';
+import {useRef} from 'react'
+import {Tabs, TabsProps, Card, Row, Col} from '@gravity-ui/uikit';
 
-import Editor, {Monaco} from '@monaco-editor/react';
+import Editor from '@monaco-editor/react';
+import {editor as EditorTypes} from 'monaco-editor/esm/vs/editor/editor.api';
 
 export type InputAreaProps = {
   handleSelectTab: (active: string) => void;
   tabItems: TabsProps['items'];
   tabActive: string;
 
-  handleInputChange: (input: string) => void;
+  handleInputChange: (input?: string) => void;
   input: string;
 }
 
 function InputArea(props: InputAreaProps) {
-  const monacoRef = useRef(null);
+  const monacoRef = useRef<EditorTypes.IStandaloneCodeEditor | null>(null);
 
   const {tabActive, tabItems, input, handleInputChange, handleSelectTab} = props;
 
@@ -22,7 +23,7 @@ function InputArea(props: InputAreaProps) {
   const lines = monacoRef?.current?.getModel()?.getLineCount() ?? 10; 
   const height = `${lines * 16}px`;
 
-  const handleOnMount = (editor, monaco) => {
+  const handleOnMount = (editor) => {
     monacoRef.current = editor;
   }
 
