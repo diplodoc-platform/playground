@@ -2,7 +2,6 @@
   "extends": "@gravity-ui/tsconfig/tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
-    "outDir": "build/esm",
     "jsx": "preserve",
     "baseUrl": ".",
     "target": "ES2020",
