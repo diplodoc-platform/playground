@@ -7,9 +7,6 @@ import transformMarkdown from '@doc-tools/transform/lib/md';
 
 import {
     mdRenderer,
-    MarkdownRendererParams,
-    MarkdownRendererEnv,
-    MarkdownRenderer,
 } from '@diplodoc/markdown-it-markdown-renderer';
 
 // @ts-ignore
