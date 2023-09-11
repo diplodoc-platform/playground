@@ -11,7 +11,7 @@ import {generateMD, generateHTML, generateTokens} from './generators';
 import './styles.css';
 
 (window as any).MonacoEnvironment = {
-  getWorker: (_workerId: string, label: string) => {
+  getWorker: (_, label: string) => {
     if (label === 'json') {
       return new Worker(
         new URL('monaco-editor/esm/vs/language/json/json.worker?worker', 'monaco-worker'),
@@ -72,7 +72,7 @@ function Playground() {
     onSetActive: generate,
   });
 
-  const handleInputChange = (input?: string | undefined) => {
+  const handleInputChange = (input?: string) => {
     setInput(input || '');
   };
 

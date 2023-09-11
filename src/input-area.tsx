@@ -2,7 +2,7 @@ import {useRef} from 'react'
 import {Tabs, TabsProps, Card, Row, Col} from '@gravity-ui/uikit';
 
 import Editor from '@monaco-editor/react';
-import {editor as EditorTypes} from 'monaco-editor/esm/vs/editor/editor.api';
+import type {editor as EditorTypes} from 'monaco-editor';
 
 export type InputAreaProps = {
   handleSelectTab: (active: string) => void;
