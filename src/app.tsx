@@ -92,7 +92,7 @@ function Playground(props: PlaygroundProperties) {
   }, [input]);
 
   return (
-    <Row space={6}>
+    <Row space={6} className="diplodoc-playground">
       <Col s="12"/>
       <InputArea
         handleSelectTab={handleSetInputAreaTabActive}
