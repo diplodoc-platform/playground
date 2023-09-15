@@ -7,6 +7,7 @@ import {OutputArea} from './output-area';
 
 import {useTabs} from './useTabs';
 import {generateMD, generateHTML, generateTokens} from './generators';
+import persistRestore from './persistRestore';
 
 import './styles.css';
 
@@ -25,13 +26,19 @@ const App = () => {
     return(<>
       <Container>
         <CallOut />
-        <Playground />
+        <Playground persistRestore={true} />
       </Container>
     </>)
 };
 
-function Playground() {
-  const [input, setInput] = useState('');
+export type PlaygroundProperties = {
+    persistRestore?: boolean;
+}
+
+function Playground(props: PlaygroundProperties) {
+  const persist = useCallback(persistRestore.persist, []);
+  const restore = useCallback(persistRestore.restore, []);
+  const [input, setInput] = useState(props.persistRestore ? (restore() ?? '') : '');
   const [generated, setGenerated] = useState(input);
 
   const generate = useCallback((active: string) => {
@@ -78,6 +85,10 @@ function Playground() {
 
   useEffect(() => {
     generate(outputActive);
+
+    if (props.persistRestore) {
+        persist(input);
+    }
   }, [input]);
 
   return (
