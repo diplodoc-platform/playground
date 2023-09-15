@@ -11,6 +11,22 @@
   text-transform: uppercase;
 }
 
+.diplodoc-playground {
+  --diplodoc-playground-height: 300px;
+}
+
+@media (min-width: 768px) {
+  .diplodoc-playground {
+    --diplodoc-playground-height: 600px;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .diplodoc-playground {
+    --diplodoc-playground-height: 75vh;
+  }
+}
+
 .callout__heading {
   font-weight: 100;
   letter-spacing: 2.5px;
@@ -23,12 +39,44 @@
 }
 
 .area__card > section {
-    min-height: 160px;
-    height: 100%;
+  height: var(--diplodoc-playground-height) !important;
+  min-height: var(--diplodoc-playground-height) !important;
+  max-height: var(--diplodoc-playground-height) !important;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  padding: 0;
 }
 
 .g-text-area__control {
-    min-height: 188px;
+  height: calc(var(--diplodoc-playground-height) + 26px) !important;
+  min-height: calc(var(--diplodoc-playground-height) + 26px) !important;
+  max-height: calc(var(--diplodoc-playground-height) + 26px) !important;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.g-text-area__content {
+  border-radius: 2px !important;
+}
+
+/* yfm preview */
+.area__yfm {
+  border-radius: 2px !important;
+
+  height: calc(var(--diplodoc-playground-height) + 26px);
+  min-height: calc(var(--diplodoc-playground-height) + 26px);
+  max-height: calc(var(--diplodoc-playground-height) + 26px);
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.area-card__editor {
+  border-radius: 2px !important;
+  padding-right: 0px;
 }
 
 .area__tabs {
@@ -36,11 +84,10 @@
 }
 
 .monaco-scrollable-element {
-  left: 0;
-  min-width: 100%;
+  left: 0 !important;
+  min-width: 100% !important;
 }
 
-/* yfm preview */
-.area__yfm {
-    min-height: 188px;
+.margin {
+  display: none !important;
 }
