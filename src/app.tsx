@@ -32,13 +32,15 @@ const App = () => {
 };
 
 export type PlaygroundProperties = {
+    content?: string;
     persistRestore?: boolean;
 }
 
 function Playground(props: PlaygroundProperties) {
   const persist = useCallback(persistRestore.persist, []);
   const restore = useCallback(persistRestore.restore, []);
-  const [input, setInput] = useState(props.persistRestore ? (restore() ?? '') : '');
+  const content = props?.persistRestore ? restore() : props?.content
+  const [input, setInput] = useState(content ?? '');
   const [generated, setGenerated] = useState(input);
 
   const generate = useCallback((active: string) => {
@@ -86,7 +88,7 @@ function Playground(props: PlaygroundProperties) {
   useEffect(() => {
     generate(outputActive);
 
-    if (props.persistRestore) {
+    if (props?.persistRestore) {
         persist(input);
     }
   }, [input]);
