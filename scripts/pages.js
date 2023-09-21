@@ -27,7 +27,7 @@ const {generateHTML} = require('../src/index.html.js');
     await writeFile(path.join(outdir, 'index.html'), html);
 
     await esbuild.build(configs.ts({
-        entryPoints: ['src/index.tsx'],
+        entryPoints: ['src/pages.tsx'],
         outfile: path.join(outdir, 'index.js'),
     }));
 })();

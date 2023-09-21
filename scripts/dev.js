@@ -21,7 +21,8 @@ const {generateHTML} = require('../src/index.html.js');
 
     const html = generateHTML({
         env: 'development',
-        csspath: path.join('/', 'index.css'),
+        jspath: 'pages.js',
+        csspath: 'pages.css',
     });
 
     await writeFile(path.join(outdir, 'index.html'), html);
@@ -29,7 +30,7 @@ const {generateHTML} = require('../src/index.html.js');
     let ctx;
 
     ctx = await esbuild.context(configs.ts({
-        entryPoints: ['src/index.tsx'],
+        entryPoints: ['src/pages.tsx'],
         outdir,
     }));
 

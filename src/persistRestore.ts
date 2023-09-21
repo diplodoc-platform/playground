@@ -1,11 +1,9 @@
-import {useCallback} from 'react';
-
 function persist(input: string) {
   try {
     const current = new URL(location.toString());
     current.searchParams.set('input', encodeURI(input) ?? '');
 
-    history.pushState(null, null, current);
+    history.pushState(null, '', current);
   } catch (err) {
     console.error(err);
   }
