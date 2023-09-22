@@ -33,6 +33,7 @@ const App = () => {
 
 export type PlaygroundProperties = {
     content?: string;
+    tabs?: { id: string, title: string }[];
     persistRestore?: boolean;
 }
 
@@ -71,7 +72,7 @@ function Playground(props: PlaygroundProperties) {
         outputActive,
         handleSetOutputAreaTabActive
     ] = useTabs({
-        items: [
+        items: props?.tabs || [
             { id: 'preview', title: 'html preview' },
             { id: 'html', title: 'html' },
             { id: 'markdown', title: 'markdown' },
