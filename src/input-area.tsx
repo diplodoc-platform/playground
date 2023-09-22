@@ -36,7 +36,7 @@ function InputArea(props: InputAreaProps) {
           </Col>
           <Col s="12"/>
           <Col s="12">
-            <Card size="m" className="area__card area-card__editor">
+            <Card size="m" view={'clear'} className="area-card__editor">
                 <Editor height={height} defaultLanguage="markdown" defaultValue={input} onChange={handleInputChange} options={editorOptions} onMount={handleOnMount} />
             </Card>
           </Col>

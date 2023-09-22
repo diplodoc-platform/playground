@@ -101,7 +101,6 @@ function Playground(props: PlaygroundProperties) {
                 handleSelectTab={handleSetInputAreaTabActive}
                 handleInputChange={handleInputChange}
                 input={input}
-
                 tabActive={inputActive}
                 tabItems={inputItems}
             />

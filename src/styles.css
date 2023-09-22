@@ -38,7 +38,7 @@
   padding: var(--g-text-body-1-font-size);
 }
 
-.area__card > section {
+.area-card__editor > section {
   height: var(--diplodoc-playground-height) !important;
   min-height: var(--diplodoc-playground-height) !important;
   max-height: var(--diplodoc-playground-height) !important;
