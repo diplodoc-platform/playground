@@ -1,4 +1,4 @@
-import {Card, Text, Row, Col} from '@gravity-ui/uikit';
+import {Card, Row, Col} from '@gravity-ui/uikit';
 
 function CallOut() {
   return (<Row space={4}>

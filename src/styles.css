@@ -38,7 +38,7 @@
   padding: var(--g-text-body-1-font-size);
 }
 
-.area__card > section {
+.area-card__editor > section {
   height: var(--diplodoc-playground-height) !important;
   min-height: var(--diplodoc-playground-height) !important;
   max-height: var(--diplodoc-playground-height) !important;
@@ -50,9 +50,9 @@
 }
 
 .g-text-area__control {
-  height: calc(var(--diplodoc-playground-height) + 26px) !important;
-  min-height: calc(var(--diplodoc-playground-height) + 26px) !important;
-  max-height: calc(var(--diplodoc-playground-height) + 26px) !important;
+  height: var(--diplodoc-playground-height) !important;
+  min-height: var(--diplodoc-playground-height) !important;
+  max-height: var(--diplodoc-playground-height) !important;
 
   overflow-y: scroll;
   overflow-x: hidden;
@@ -66,9 +66,9 @@
 .area__yfm {
   border-radius: 2px !important;
 
-  height: calc(var(--diplodoc-playground-height) + 26px);
-  min-height: calc(var(--diplodoc-playground-height) + 26px);
-  max-height: calc(var(--diplodoc-playground-height) + 26px);
+  height: var(--diplodoc-playground-height) !important;
+  min-height: var(--diplodoc-playground-height) !important;
+  max-height: var(--diplodoc-playground-height) !important;
 
   overflow-y: scroll;
   overflow-x: hidden;

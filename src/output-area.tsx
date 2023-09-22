@@ -31,8 +31,8 @@ function OutputArea(props: OutputAreaProps) {
           <Col s="12" />
           <Col s="12">
             {tabActive === 'preview'
-                ? <Card size="m" className="yfm area__yfm">
-                    <div dangerouslySetInnerHTML={{__html: output}} className="area__card"></div>
+                ? <Card size="m" className="yfm area__yfm" view={'clear'}>
+                    <div dangerouslySetInnerHTML={{__html: output}}/>
                   </Card>
                 : <TextArea
                     onUpdate={handleInputChange}
