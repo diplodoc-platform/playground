@@ -1,6 +1,4 @@
 .g-root {
-  /*--g-card-background-color: rgb(198, 255, 62);*/
-  /*--g-color-line-brand: rgb(26, 62, 48) !important;*/
   --diplodoc-playground-height: 400px;
 
   @media (min-width: 768px) {
@@ -34,20 +32,4 @@
   display: none !important;
 }
 
-.diplodoc-playground__logo {
-  height: calc(var(--g-text-display-4-font-size) * 2);
-  width: auto;
-}
 
-.diplodoc-playground__logo > path {
-  fill: white;
-  /*fill: rgb(26, 62, 48);*/
-}
-
-/*.g-root {*/
-
-/*}*/
-
-/*.callout__card {*/
-/*  background-color: rgb(198, 255, 62) !important;*/
-/*}*/

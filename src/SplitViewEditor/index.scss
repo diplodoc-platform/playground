@@ -3,13 +3,13 @@
 
   gap: 30px;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 }
 
 .area__card {
-  padding: var(--g-text-body-1-font-size);
+  padding: 10px 25px;
 
   & > section {
     height: var(--diplodoc-playground-height);
@@ -47,7 +47,7 @@
 .input {
   width: 50%;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 
@@ -57,7 +57,7 @@
 .output {
   width: 50%;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 }
