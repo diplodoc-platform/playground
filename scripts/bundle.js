@@ -30,7 +30,7 @@ const external = [
 
   await esbuild.build({
     ...configs.ts({
-      entryPoints: ['src/app.tsx'],
+      entryPoints: ['src/App/index.tsx'],
       outfile: path.join(outdir, 'index.js'),
     }),
     target: 'es2020',
