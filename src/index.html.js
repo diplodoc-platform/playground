@@ -23,11 +23,12 @@ function generateHTML({env, jspath, csspath} = {}) {
                 location.reload();
             });
         </script>` : ''}
-        <link rel="stylesheet" type="text/css" href="${csspath}"/>
+        <link rel="stylesheet" type="text/css" href="${csspath[0]}"/>
+        <link rel="stylesheet" type="text/css" href="${csspath[1]}"/>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="app"></div>
+        <div id="app" class="app"></div>
         <script src="${jspath}"></script>
     </body>
 </html>

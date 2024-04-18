@@ -21,7 +21,7 @@ const {generateHTML} = require('../src/index.html.js');
 
     const html = generateHTML({
         env: 'development',
-        csspath: path.join('/', 'index.css'),
+        csspath: [path.join('/', 'index.css'), path.join('/', 'styles.css')]
     });
 
     await writeFile(path.join(outdir, 'index.html'), html);

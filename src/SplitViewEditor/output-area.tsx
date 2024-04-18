@@ -1,4 +1,4 @@
-import {Row, Col, Card, Tabs, TabsProps, TextArea} from '@gravity-ui/uikit';
+import {Card, Tabs, TabsProps, TextArea} from '@gravity-ui/uikit';
 
 export type OutputAreaProps = {
   handleSelectTab: (active: string) => void;
@@ -17,19 +17,16 @@ function OutputArea(props: OutputAreaProps) {
   }
 
   return (
-    <Col s="6">
-      <Card size="m" className="area__card">
-        <Row space={2}>
-          <Col s="12">
+        <div className='output'>
+          <div>
             <Tabs
               onSelectTab={handleSelectTab}
               activeTab={tabActive}
               items={tabItems}
               className="area__tabs"
             />
-          </Col>
-          <Col s="12" />
-          <Col s="12">
+          </div>
+          <div>
             {tabActive === 'preview'
                 ? <Card size="m" className="yfm area__yfm">
                     <div dangerouslySetInnerHTML={{__html: output}} className="area__card"></div>
@@ -39,10 +36,9 @@ function OutputArea(props: OutputAreaProps) {
                     value={output} 
                     size="l" />
             }
-          </Col>
-        </Row>
-      </Card>
-    </Col>
+          </div>
+        </div>
+
   );
 }
 

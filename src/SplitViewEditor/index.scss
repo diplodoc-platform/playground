@@ -1,0 +1,51 @@
+.split-view {
+    display: flex;
+
+    gap: 30px
+}
+  
+.area__card {
+    padding: var(--g-text-body-1-font-size);
+
+    & > section {
+        height: var(--diplodoc-playground-height) !important;
+        min-height: var(--diplodoc-playground-height) !important;
+        max-height: var(--diplodoc-playground-height) !important;
+        background-color: red;
+        overflow-y: scroll;
+        overflow-x: hidden;
+      
+        padding: 0;
+    }
+}
+
+/* yfm preview */
+.area__yfm {
+    border-radius: 2px !important;
+  
+    height: calc(var(--diplodoc-playground-height) + 26px);
+    min-height: calc(var(--diplodoc-playground-height) + 26px);
+    max-height: calc(var(--diplodoc-playground-height) + 26px);
+  
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  .area-card__editor {
+    border-radius: 2px !important;
+    padding-right: 0px;
+  }
+  
+  .area__tabs {
+    text-transform: uppercase;
+}
+
+.input {
+    width: 50%;
+
+    margin-top: 39px;
+}
+
+.output {
+    width: 50%;
+}

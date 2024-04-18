@@ -4,7 +4,10 @@ import {ThemeProvider} from '@gravity-ui/uikit';
 import {App} from './app';
 
 import './index.css';
-import '@doc-tools/transform/dist/js/yfm.js';
+import './styles.css';
+import './overrides.scss';
+
+import '@diplodoc/transform/dist/js/yfm.js';
 
 const container = document.getElementById('app');
 const root = createRoot(container as HTMLElement);

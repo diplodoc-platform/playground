@@ -1,5 +1,5 @@
 import {useRef} from 'react'
-import {Tabs, TabsProps, Card, Row, Col} from '@gravity-ui/uikit';
+import {TabsProps, Card} from '@gravity-ui/uikit';
 
 import Editor from '@monaco-editor/react';
 import type {editor as EditorTypes} from 'monaco-editor';
@@ -28,21 +28,13 @@ function InputArea(props: InputAreaProps) {
   }
 
   return (
-    <Col s="6">
-      <Card size="m" className="area__card">
-        <Row space={2}>
-          <Col s="12">
-            <Tabs activeTab={tabActive} items={tabItems} className="area__tabs" onSelectTab={handleSelectTab}/>
-          </Col>
-          <Col s="12"/>
-          <Col s="12">
-            <Card size="m" className="area__card area-card__editor">
-                <Editor height={height} defaultLanguage="markdown" defaultValue={input} onChange={handleInputChange} options={editorOptions} onMount={handleOnMount} />
-            </Card>
-          </Col>
-        </Row>
+    <div className="input">
+      <Card size="m" className="area__card area-card__editor">
+          <Editor height={height} defaultLanguage="markdown" defaultValue={input} onChange={handleInputChange} options={editorOptions} onMount={handleOnMount} />
       </Card>
-    </Col>);
+    </div>
+
+    );
 }
 
 export {InputArea};

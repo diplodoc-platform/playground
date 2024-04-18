@@ -41,16 +41,14 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@doc-tools/transform": "^3.8.5",
-    "@gravity-ui/uikit": "^5.5.0",
+    "@gravity-ui/uikit": "^6.10.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@doc-tools/transform": "^3.8.5",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "@gravity-ui/tsconfig": "^1.0.0",
-    "@gravity-ui/uikit": "^5.5.0",
+    "@gravity-ui/uikit": "^6.10.2",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",
     "autoprefixer": "^10.4.15",
@@ -65,7 +63,12 @@
   },
   "dependencies": {
     "@diplodoc/markdown-it-markdown-renderer": "^0.14.4",
+    "@diplodoc/transform": "^4.13.1",
+    "@doc-tools/yfm-editor": "^12.2.1",
+    "@gravity-ui/page-constructor": "^5.12.0",
     "@monaco-editor/react": "^4.5.2",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
     "markdown-it-meta": "^0.0.1",
     "markdown-it-sup": "^1.0.0",
