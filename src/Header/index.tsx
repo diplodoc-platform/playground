@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="header">
       <div className="wrapper">
-          <Link href="/">
+          <Link href="/playground">
               <img src="https://storage.yandexcloud.net/diplodoc-www-assets/navigation/diplodoc-logo.svg" />
           </Link>
         <Link href="https://diplodoc.com/docs/ru/" view="primary">

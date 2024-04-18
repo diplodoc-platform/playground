@@ -33,7 +33,7 @@ function PageConstructorEditor() {
 }
 
 function SafePageConstructorEditor() {
-    return <ErrorBoundary fallback={<p>Something went wrong. You may have entered the wrong PC config format, it must start with "blocks" array. <a href={'/?mode=PC&input=%257B%2522blocks%2522%3A%255B%255D%2C%2522animated%2522%3Afalse%257D'}>Refresh the page.</a></p>}>
+    return <ErrorBoundary fallback={<p>Something went wrong. You may have entered the wrong PC config format, it must start with "blocks" array. <a href={'/playground?mode=PC&input=%257B%2522blocks%2522%3A%255B%255D%2C%2522animated%2522%3Afalse%257D'}>Refresh the page.</a></p>}>
         <PageConstructorEditor />
     </ErrorBoundary>
 }

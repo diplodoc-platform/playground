@@ -27,8 +27,7 @@ function generateHTML({env, jspath, csspath} = {}) {
         </script>`
             : ''
         }
-        <link rel="stylesheet" type="text/css" href="${csspath[0]}"/>
-        <link rel="stylesheet" type="text/css" href="${csspath[1]}"/>
+        <link rel="stylesheet" type="text/css" href="${csspath}"/>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
