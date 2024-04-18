@@ -1,5 +1,10 @@
 .g-root {
-    .pc-control-panel.pc-control-panel {
-        border-top: none;
-    }
+  .pc-control-panel.pc-control-panel {
+    border-top: none;
+  }
+
+  .pc-editor-layout__left, .pc-editor-layout__right {
+    height: calc(100vh - 300px);
+    max-height: calc(100vh - 300px);
+  }
 }

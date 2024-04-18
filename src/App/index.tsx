@@ -1,57 +1,68 @@
-import {useCallback, useState, useEffect}  from 'react';
-
 import './index.scss';
-import {useTabs} from "src/useTabs";
-import { Tabs } from 'node_modules/@gravity-ui/uikit/build/esm/index';
-import SplitViewEditor from "src/SplitViewEditor";
-import PageConstructorEditor from "src/PageConstructorEditor";
-import WYSIWYGEditor from "src/WYSIWYGEditor";
-import Header from "src/Header";
-
+import {useTabs} from 'src/useTabs';
+import {Tabs} from 'node_modules/@gravity-ui/uikit/build/esm/index';
+import SplitViewEditor from 'src/SplitViewEditor';
+import PageConstructorEditor from 'src/PageConstructorEditor';
+import WYSIWYGEditor from 'src/WYSIWYGEditor';
+import Header from 'src/Header';
+import {restore} from '../utils';
 
 const App = () => {
-  return(
-  <>
-      <Header/>
+  return (
+    <>
+      <Header />
       <Playground persistRestore={true} />
-  </>)
+    </>
+  );
 };
 
 export type PlaygroundProperties = {
   content?: string;
   persistRestore?: boolean;
-}
+};
 
-enum EditorType {
+export enum EditorType {
   SPLIT = 'SPLIT_VIEW',
   WYSIWYG = 'WYSIWYG',
-  PC = 'PC'
-
+  PC = 'PC',
 }
 
-function Playground(props: PlaygroundProperties) {
-  const [editorType, setEditorType] = useState(EditorType.SPLIT);
+const mode = {
+  [EditorType.SPLIT]: {
+    title: 'Split view',
+    node: <SplitViewEditor persistRestore={true} />,
+  },
+  [EditorType.WYSIWYG]: {
+    title: 'WYSIWYG',
+    node: <WYSIWYGEditor />,
+  },
+  [EditorType.PC]: {
+    title: 'Page constructor',
+    node: <PageConstructorEditor />,
+  },
+};
 
-  const [
-    items,
-    activeTab,
-    handleSetInputAreaTabActive
-  ] = useTabs({
-    items: [
-        { id: EditorType.SPLIT, title: 'Split view', node: <SplitViewEditor/> },
-        { id: EditorType.WYSIWYG, title: 'WYSIWYG', node: <WYSIWYGEditor/> },
-        { id: EditorType.PC, title: 'Page constructor', node: <PageConstructorEditor/> }
-    ],
-    initial: EditorType.SPLIT,
+function Playground(props: PlaygroundProperties) {
+  const urlMode = restore('mode');
+
+  const [items, activeTab, handleSetInputAreaTabActive] = useTabs({
+    items: Object.entries(mode).map(([key, value]) => ({
+      id: key,
+      ...value,
+    })),
+    initial: mode[urlMode] ? urlMode : EditorType.SPLIT,
   });
 
   return (
-      <div className="playground">
-        <Tabs className="tabs" activeTab={activeTab} items={items} onSelectTab={handleSetInputAreaTabActive}/>
-        <div className="editor">
-              {items?.find(el => el.id === activeTab).node}
-        </div>
-      </div>
+    <div className="playground">
+      <Tabs
+        className="tabs"
+        activeTab={activeTab}
+        items={items}
+        onSelectTab={handleSetInputAreaTabActive}
+      />
+      <div className="editor">{mode[activeTab].node}</div>
+    </div>
   );
 }
 

@@ -5,12 +5,10 @@ import transform from '@diplodoc/transform';
 // @ts-ignore
 import transformMarkdown from '@diplodoc/transform/lib/md';
 
-import {
-    mdRenderer,
-} from '@diplodoc/markdown-it-markdown-renderer';
+import {mdRenderer} from '@diplodoc/markdown-it-markdown-renderer';
 
 // @ts-ignore
- import meta from 'markdown-it-meta';
+import meta from 'markdown-it-meta';
 // @ts-ignore
 import sup from 'markdown-it-sup';
 import notes from '@diplodoc/transform/lib/plugins/notes';
@@ -26,8 +24,8 @@ import video from '@diplodoc/transform/lib/plugins/video';
 import table from '@diplodoc/transform/lib/plugins/table';
 
 const diplodocOptions = {
-    lang: 'en',
-    path: '',
+  lang: 'en',
+  path: '',
 };
 
 function generateMD(input: string) {
@@ -50,7 +48,7 @@ function generateMD(input: string) {
 
   try {
     return md.render(input, {source: input.split('\n')});
-  } catch(e) {
+  } catch (e) {
     console.error(e);
     return '';
   }

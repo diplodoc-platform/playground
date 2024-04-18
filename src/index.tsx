@@ -13,7 +13,7 @@ const container = document.getElementById('app');
 const root = createRoot(container as HTMLElement);
 
 root.render(
-  <ThemeProvider theme="light"> 
+  <ThemeProvider theme="light">
     <App />
-  </ThemeProvider>
+  </ThemeProvider>,
 );

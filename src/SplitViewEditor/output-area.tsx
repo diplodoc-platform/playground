@@ -13,32 +13,29 @@ function OutputArea(props: OutputAreaProps) {
   let {output, tabItems, tabActive, handleSelectTab, handleInputChange} = props;
 
   if (!handleInputChange) {
-    handleInputChange = () => {}
+    handleInputChange = () => {};
   }
 
   return (
-        <div className='output'>
-          <div>
-            <Tabs
-              onSelectTab={handleSelectTab}
-              activeTab={tabActive}
-              items={tabItems}
-              className="area__tabs"
-            />
-          </div>
-          <div>
-            {tabActive === 'preview'
-                ? <Card size="m" className="yfm area__yfm">
-                    <div dangerouslySetInnerHTML={{__html: output}} className="area__card"></div>
-                  </Card>
-                : <TextArea
-                    onUpdate={handleInputChange}
-                    value={output} 
-                    size="l" />
-            }
-          </div>
-        </div>
-
+    <div className="output">
+      <div>
+        <Tabs
+          onSelectTab={handleSelectTab}
+          activeTab={tabActive}
+          items={tabItems}
+          className="area__tabs"
+        />
+      </div>
+      <div>
+        {tabActive === 'preview' ? (
+          <Card size="m" className="yfm area__yfm">
+            <div dangerouslySetInnerHTML={{__html: output}} className="area__card"></div>
+          </Card>
+        ) : (
+          <TextArea onUpdate={handleInputChange} value={output} size="l" />
+        )}
+      </div>
+    </div>
   );
 }
 

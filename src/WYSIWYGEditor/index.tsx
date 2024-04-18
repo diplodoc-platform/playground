@@ -1,40 +1,47 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
-    Extension,
-    BasePreset,
-    BehaviorPreset,
-    MarkdownBlocksPreset,
-    MarkdownMarksPreset,
-    YfmPreset,
+  BasePreset,
+  BehaviorPreset,
+  Extension,
+  MarkdownBlocksPreset,
+  MarkdownMarksPreset,
+  YfmPreset,
 } from '@doc-tools/yfm-editor';
-import {useYfmEditor, YfmEditorView} from "@doc-tools/yfm-editor/bundle";
+import {YfmEditorView, useYfmEditor} from '@doc-tools/yfm-editor/bundle';
 
-import initialMarkup from '../SplitViewEditor/mdContent';
+import {persist, prefill, restore} from 'src/utils';
 
 function WYSIWYGEditor({}) {
-    const extensions = React.useMemo<Extension>(
-        () => (builder) =>
-            builder
-                .use(BasePreset, {})
-                .use(BehaviorPreset, {})
-                .use(MarkdownBlocksPreset, {image: false, heading: false})
-                .use(MarkdownMarksPreset, {})
-                .use(YfmPreset, {}),
-        [],
-    );
+  const [input, setInput] = useState(prefill() || '');
 
-    const editor = useYfmEditor({
-        linkify: true,
-        allowHTML: false,
-        extensions,
-        initialMarkup,
-        initialToolbarVisible: true,
-    });
+  const extensions = React.useMemo<Extension>(
+    () => (builder) =>
+      builder
+        .use(BasePreset, {})
+        .use(BehaviorPreset, {})
+        .use(MarkdownBlocksPreset, {image: false, heading: false})
+        .use(MarkdownMarksPreset, {})
+        .use(YfmPreset, {}),
+    [],
+  );
 
-    // Serialize current content in YFM
-    editor.getValue();
+  const editor = useYfmEditor({
+    linkify: true,
+    allowHTML: false,
+    extensions,
+    initialMarkup: input,
+    initialToolbarVisible: true,
+  });
 
-    return <YfmEditorView autofocus editor={editor} />;
+  useEffect(() => {
+    editor.on('change', () => persist(editor.getValue()));
+  }, [])
+
+  useEffect(() => {
+      persist(input);
+  }, [input]);
+
+  return <YfmEditorView autofocus editor={editor} />;
 }
 
-export default WYSIWYGEditor
+export default WYSIWYGEditor;

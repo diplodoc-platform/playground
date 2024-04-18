@@ -1,40 +1,42 @@
-import {useRef} from 'react'
-import {TabsProps, Card} from '@gravity-ui/uikit';
+import {useRef} from 'react';
+import {Card} from '@gravity-ui/uikit';
 
 import Editor from '@monaco-editor/react';
 import type {editor as EditorTypes} from 'monaco-editor';
 
 export type InputAreaProps = {
-  handleSelectTab: (active: string) => void;
-  tabItems: TabsProps['items'];
-  tabActive: string;
-
   handleInputChange: (input?: string) => void;
   input: string;
-}
+};
 
 function InputArea(props: InputAreaProps) {
   const monacoRef = useRef<EditorTypes.IStandaloneCodeEditor | null>(null);
 
-  const {tabActive, tabItems, input, handleInputChange, handleSelectTab} = props;
+  const {input, handleInputChange} = props;
 
-  const editorOptions = {minimap: {enabled: false}, lineNumbers: "off" as const};
+  const editorOptions = {minimap: {enabled: false}, lineNumbers: 'off' as const};
 
-  const lines = monacoRef?.current?.getModel()?.getLineCount() ?? 10; 
+  const lines = monacoRef?.current?.getModel()?.getLineCount() ?? 10;
   const height = `${lines * 16}px`;
 
   const handleOnMount = (editor) => {
     monacoRef.current = editor;
-  }
+  };
 
   return (
     <div className="input">
       <Card size="m" className="area__card area-card__editor">
-          <Editor height={height} defaultLanguage="markdown" defaultValue={input} onChange={handleInputChange} options={editorOptions} onMount={handleOnMount} />
+        <Editor
+          height={height}
+          defaultLanguage="markdown"
+          defaultValue={input}
+          onChange={handleInputChange}
+          options={editorOptions}
+          onMount={handleOnMount}
+        />
       </Card>
     </div>
-
-    );
+  );
 }
 
 export {InputArea};
