@@ -1,14 +1,14 @@
 .g-root {
   /*--g-card-background-color: rgb(198, 255, 62);*/
   /*--g-color-line-brand: rgb(26, 62, 48) !important;*/
-  --diplodoc-playground-height: 300px;
+  --diplodoc-playground-height: 400px;
 
   @media (min-width: 768px) {
-    --diplodoc-playground-height: 600px;
+    --diplodoc-playground-height: calc(100vh - 230px);
   }
 
   @media (min-width: 1080px) {
-    --diplodoc-playground-height: 900px;
+    --diplodoc-playground-height: calc(100vh - 300px);
   }
 }
 

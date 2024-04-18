@@ -2,15 +2,19 @@
   display: flex;
 
   gap: 30px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .area__card {
   padding: var(--g-text-body-1-font-size);
 
   & > section {
-    height: var(--diplodoc-playground-height) !important;
-    min-height: var(--diplodoc-playground-height) !important;
-    max-height: var(--diplodoc-playground-height) !important;
+    height: var(--diplodoc-playground-height);
+    min-height: var(--diplodoc-playground-height);
+    max-height: var(--diplodoc-playground-height);
 
     overflow-y: scroll;
     overflow-x: hidden;
@@ -21,7 +25,7 @@
 
 /* yfm preview */
 .area__yfm {
-  border-radius: 2px !important;
+  border-radius: 2px;
 
   height: calc(var(--diplodoc-playground-height) + 26px);
   min-height: calc(var(--diplodoc-playground-height) + 26px);
@@ -32,7 +36,7 @@
 }
 
 .area-card__editor {
-  border-radius: 2px !important;
+  border-radius: 2px;
   padding-right: 0px;
 }
 
@@ -43,9 +47,17 @@
 .input {
   width: 50%;
 
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+
   margin-top: 39px;
 }
 
 .output {
   width: 50%;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 }
