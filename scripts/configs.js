@@ -38,7 +38,7 @@ const configuredNodePolyfillPlugin = polyfillNode();
 const common = {
   platform: 'browser',
   sourcemap: true,
-  minify: true,
+  minify: false,
   bundle: true,
 };
 

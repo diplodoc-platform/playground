@@ -8,11 +8,20 @@ import {
   YfmPreset,
 } from '@doc-tools/yfm-editor';
 import {YfmEditorView, useYfmEditor} from '@doc-tools/yfm-editor/bundle';
+import {Toaster} from "@gravity-ui/uikit";
 
-import {persist, prefill, restore} from 'src/utils';
+import {deleteQuery, persist, prefill} from 'src/utils';
 
 function WYSIWYGEditor({}) {
+  const toaster = new Toaster();
+
   const [input, setInput] = useState(prefill() || '');
+
+  if(input){
+    persist(input)
+  } else {
+    deleteQuery('input')
+  }
 
   const extensions = React.useMemo<Extension>(
     () => (builder) =>
@@ -31,17 +40,15 @@ function WYSIWYGEditor({}) {
     extensions,
     initialMarkup: input,
     initialToolbarVisible: true,
+    initialEditorType: 'wysiwyg',
   });
 
   useEffect(() => {
     editor.on('change', () => persist(editor.getValue()));
-  }, [])
+    setInput(editor.getValue())
+  }, [input])
 
-  useEffect(() => {
-      persist(input);
-  }, [input]);
-
-  return <YfmEditorView autofocus editor={editor} />;
+  return <YfmEditorView autofocus editor={editor} toaster={toaster}/>;
 }
 
 export default WYSIWYGEditor;

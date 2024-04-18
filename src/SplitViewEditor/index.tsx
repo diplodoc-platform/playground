@@ -5,7 +5,7 @@ import {OutputArea} from './output-area';
 
 import {useTabs} from '../useTabs';
 import {generateHTML, generateMD, generateTokens} from './generators';
-import {persist, prefill} from '../utils';
+import {deleteQuery, persist, prefill} from '../utils';
 
 import './index.scss';
 
@@ -65,8 +65,10 @@ function SplitViewEditor(props: PlaygroundProperties) {
   useEffect(() => {
     generate(outputActive);
 
-    if (props?.persistRestore) {
+    if (props?.persistRestore && input) {
       persist(input);
+    } else {
+      deleteQuery('input')
     }
   }, [input]);
 
