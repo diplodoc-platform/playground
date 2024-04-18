@@ -1,0 +1,18 @@
+.g-root {
+  .pc-control-panel.pc-control-panel {
+    border-top: none;
+  }
+
+  .pc-editor-layout__left, .pc-editor-layout__right {
+    height: calc(100vh - 230px);
+    max-height: calc(100vh - 230px);
+  }
+
+  .pc-device-emulation-mobile__frame_device_tablet {
+    height: 100%;
+  }
+
+  .pc-device-emulation-mobile__frame_device_mobile {
+    height: 100%;
+  }
+}
