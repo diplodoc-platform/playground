@@ -7589,7 +7589,7 @@
 }
 .playground {
   width: 1328px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 @media (max-width: 1328px) {
   .playground {
@@ -24616,17 +24616,31 @@ span.CodeMirror-selectedtext {
   width: 100%;
   box-shadow: inset 0 -1px 0 var(--g-color-line-generic);
 }
+.header__tab {
+  height: 100%;
+  font-size: var(--g-text-body-2-font-size);
+}
+.header__tabs {
+  height: 100%;
+}
 .wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 30px;
+  height: 100%;
   width: 1328px;
+}
+.wrapper > .g-tabs_direction_horizontal {
+  box-shadow: none;
 }
 .link {
   outline: none;
 }
 .text {
   font-size: var(--g-text-body-2-font-size);
+}
+.documentation {
+  margin-left: auto;
 }
 
 /* src/index.css */
@@ -28519,6 +28533,9 @@ h6 {
 }
 
 /* src/overrides.scss */
+.g-root {
+  --g-tabs-item-height: 100%;
+}
 .g-root .pc-control-panel.pc-control-panel {
   border-top: none;
 }
@@ -28532,6 +28549,9 @@ h6 {
 }
 .g-root .pc-device-emulation-mobile__frame_device_mobile {
   height: 100%;
+}
+.g-root .g-tabs__item-title {
+  font-size: var(--g-text-body-2-font-size);
 }
 /*! Bundled license information:
 
