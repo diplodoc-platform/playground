@@ -6,7 +6,12 @@ import PageConstructorEditor from 'src/PageConstructorEditor';
 import WYSIWYGEditor from 'src/WYSIWYGEditor';
 import Header from 'src/Header';
 import {restore} from '../utils';
-
+import navigation from './navigation.json';
+import {
+  PageConstructor,
+  PageConstructorProvider,
+} from '@gravity-ui/page-constructor';
+import React from "react";
 export type PlaygroundProperties = {
   content?: string;
   persistRestore?: boolean;
@@ -47,10 +52,33 @@ const App = () => {
 
   return (
     <>
-      <Header items={items} activeTab={activeTab} handleSetInputAreaTabActive={handleSetInputAreaTabActive}/>
-      <Playground persistRestore={true}>
-        {mode[activeTab].node}
-      </Playground>
+      <PageConstructorProvider theme={'light'}>
+        <PageConstructor
+            navigation={navigation}
+            custom={{
+              navigation: {
+                controls: () => (
+                    <Header items={items} activeTab={activeTab} handleSetInputAreaTabActive={handleSetInputAreaTabActive}/>
+                ),
+              },
+              blocks: {
+                page: () => (
+                    <Playground persistRestore={true}>
+                      {mode[activeTab].node}
+                    </Playground>
+                ),
+              },
+            }}
+            content={{
+              blocks: [
+                {
+                  type: 'page',
+                  resetPaddings: true,
+                },
+              ],
+            }}
+        />
+      </PageConstructorProvider>
     </>
   );
 };
