@@ -1,19 +1,25 @@
 import React, {useEffect, useState} from 'react';
+import {cloneDeep} from 'lodash';
+
 import {
   BasePreset,
   BehaviorPreset,
   Extension,
   MarkdownBlocksPreset,
   MarkdownMarksPreset,
-  YfmPreset,
 } from '@doc-tools/yfm-editor';
-import {YfmEditorView, useYfmEditor} from '@doc-tools/yfm-editor/bundle';
+import {YfmEditorView, useYfmEditor, wysiwygToolbarConfigs, markupToolbarConfigs} from '@doc-tools/yfm-editor/bundle';
 import {Toaster} from "@gravity-ui/uikit";
 
-import {deleteQuery, persist, prefill} from 'src/utils';
+import {deleteElementById, deleteQuery, persist, prefill} from 'src/utils';
+import {YfmPreset} from "src/WYSIWYGEditor/yfmPreset";
 
 function WYSIWYGEditor({}) {
   const toaster = new Toaster();
+  const wToolbarConfig = cloneDeep(wysiwygToolbarConfigs.wToolbarConfig);
+  const mToolbarConfig = cloneDeep(markupToolbarConfigs.mToolbarConfig);
+  const wToolbarConfigWithoutColor = deleteElementById(wToolbarConfig, 'colorify')
+  const mToolbarConfigWithoutColor = deleteElementById(mToolbarConfig, 'colorify')
 
   const [input, setInput] = useState(prefill() || '');
 
@@ -34,6 +40,7 @@ function WYSIWYGEditor({}) {
     [],
   );
 
+
   const editor = useYfmEditor({
     linkify: true,
     allowHTML: false,
@@ -48,7 +55,7 @@ function WYSIWYGEditor({}) {
     setInput(editor.getValue())
   }, [input])
 
-  return <YfmEditorView autofocus editor={editor} toaster={toaster}/>;
+  return <YfmEditorView autofocus editor={editor} toaster={toaster} wysiwygToolbarConfig={wToolbarConfigWithoutColor} markupToolbarConfig={mToolbarConfigWithoutColor}/>;
 }
 
 export default WYSIWYGEditor;
