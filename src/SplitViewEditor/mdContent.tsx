@@ -1,9 +1,7 @@
 export default `
 #### YFM синтаксис
 
-Синтаксис
- {red}(Красный текст)
- Yandex Flavored Markdown базируется на CommonMark Spec, 
+Синтаксис Yandex Flavored Markdown базируется на CommonMark Spec, 
 дополняя его уникальными элементами из других языков разметки и 
 шаблонизаторов. В частности:
 
