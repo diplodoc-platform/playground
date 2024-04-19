@@ -52,4 +52,11 @@ function prefill() {
   return restore();
 }
 
-export {persist, restore, prefill, deleteQuery};
+function deleteElementById(data, idToRemove) {
+  return data.map(subArray => {
+    return subArray.filter(element => element.id !== idToRemove);
+  }).filter(subArray => subArray.length > 0);
+}
+
+
+export {persist, restore, prefill, deleteQuery, deleteElementById};

@@ -54,6 +54,7 @@
     "@gravity-ui/tsconfig": "^1.0.0",
     "@gravity-ui/uikit": "^6.10.2",
     "@types/js-yaml": "^4.0.9",
+    "@types/lodash": "^4.17.0",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",
     "autoprefixer": "^10.4.15",
