@@ -15,4 +15,10 @@
   .pc-device-emulation-mobile__frame_device_mobile {
     height: 100%;
   }
+
+  --g-tabs-item-height: 100%;
+
+  .g-tabs__item-title {
+    font-size: var(--g-text-body-2-font-size);
+  }
 }

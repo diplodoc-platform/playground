@@ -7,15 +7,6 @@ import WYSIWYGEditor from 'src/WYSIWYGEditor';
 import Header from 'src/Header';
 import {restore} from '../utils';
 
-const App = () => {
-  return (
-    <>
-      <Header />
-      <Playground persistRestore={true} />
-    </>
-  );
-};
-
 export type PlaygroundProperties = {
   content?: string;
   persistRestore?: boolean;
@@ -42,7 +33,8 @@ const mode = {
   },
 };
 
-function Playground(props: PlaygroundProperties) {
+
+const App = () => {
   const urlMode = restore('mode');
 
   const [items, activeTab, handleSetInputAreaTabActive] = useTabs({
@@ -54,14 +46,19 @@ function Playground(props: PlaygroundProperties) {
   });
 
   return (
+    <>
+      <Header items={items} activeTab={activeTab} handleSetInputAreaTabActive={handleSetInputAreaTabActive}/>
+      <Playground persistRestore={true}>
+        {mode[activeTab].node}
+      </Playground>
+    </>
+  );
+};
+
+function Playground({children}) {
+  return (
     <div className="playground">
-      <Tabs
-        className="tabs"
-        activeTab={activeTab}
-        items={items}
-        onSelectTab={handleSetInputAreaTabActive}
-      />
-      <div className="editor">{mode[activeTab].node}</div>
+      <div className="editor">{children}</div>
     </div>
   );
 }
