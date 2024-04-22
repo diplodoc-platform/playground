@@ -11,6 +11,13 @@
 @import '@gravity-ui/uikit/build/cjs/components/controls/variables.css';
 @import '@gravity-ui/uikit/build/cjs/components/controls/TextArea/TextArea.css';
 
+html, body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .g-root h1 {
   font-family: var(--g-text-header-font-family);
   font-weight: 700;
