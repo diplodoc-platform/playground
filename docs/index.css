@@ -28545,10 +28545,7 @@ h6 {
   height: calc(100vh - 230px);
   max-height: calc(100vh - 230px);
 }
-.g-root .pc-device-emulation-mobile__frame_device_tablet {
-  height: 100%;
-}
-.g-root .pc-device-emulation-mobile__frame_device_mobile {
+.g-root .pc-editor-layout__right > .pc-device-emulation-mobile {
   height: 100%;
 }
 .g-root .g-tabs__item-title {
