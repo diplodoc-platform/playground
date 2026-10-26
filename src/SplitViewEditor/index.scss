@@ -16,7 +16,7 @@
     min-height: var(--diplodoc-playground-height);
     max-height: var(--diplodoc-playground-height);
 
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 
     padding: 0;
@@ -31,7 +31,7 @@
   min-height: calc(var(--diplodoc-playground-height) + 26px);
   max-height: calc(var(--diplodoc-playground-height) + 26px);
 
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 

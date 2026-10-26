@@ -1,7 +1,7 @@
 import {createRoot} from 'react-dom/client';
 import {ThemeProvider} from '@gravity-ui/uikit';
 
-import {App} from './app';
+import {App} from './App';
 
 import './index.css';
 import './styles.css';

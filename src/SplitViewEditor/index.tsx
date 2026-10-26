@@ -9,7 +9,7 @@ import {deleteQuery, persist, prefill} from '../utils';
 
 import './index.scss';
 
-(window as any).MonacoEnvironment = {
+window.MonacoEnvironment = {
   getWorker: (_, label: string) => {
     if (label === 'json') {
       return new Worker(
@@ -58,8 +58,8 @@ function SplitViewEditor(props: PlaygroundProperties) {
     onSetActive: generate,
   });
 
-  const handleInputChange = (input?: string) => {
-    setInput(input || '');
+  const handleInputChange = (value?: string) => {
+    setInput(value || '');
   };
 
   useEffect(() => {
@@ -68,16 +68,13 @@ function SplitViewEditor(props: PlaygroundProperties) {
     if (props?.persistRestore && input) {
       persist(input);
     } else {
-      deleteQuery('input')
+      deleteQuery('input');
     }
   }, [input]);
 
   return (
     <div className="split-view">
-      <InputArea
-        handleInputChange={handleInputChange}
-        input={input}
-      />
+      <InputArea handleInputChange={handleInputChange} input={input} />
       <OutputArea
         handleSelectTab={handleSetOutputAreaTabActive}
         tabItems={outputItems}

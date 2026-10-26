@@ -1,17 +1,17 @@
 import './index.scss';
 import {useTabs} from 'src/useTabs';
-import {Tabs} from 'node_modules/@gravity-ui/uikit/build/esm/index';
 import SplitViewEditor from 'src/SplitViewEditor';
 import PageConstructorEditor from 'src/PageConstructorEditor';
 import WYSIWYGEditor from 'src/WYSIWYGEditor';
 import Header from 'src/Header';
-import {restore} from '../utils';
+import {deleteQuery, persist, restore} from '../utils';
 import navigation from './navigation.json';
 import {
+  NavigationData,
   PageConstructor,
   PageConstructorProvider,
+  Theme,
 } from '@gravity-ui/page-constructor';
-import React from "react";
 export type PlaygroundProperties = {
   content?: string;
   persistRestore?: boolean;
@@ -38,7 +38,6 @@ const mode = {
   },
 };
 
-
 const App = () => {
   const urlMode = restore('mode');
 
@@ -48,35 +47,39 @@ const App = () => {
       ...value,
     })),
     initial: mode[urlMode] ? urlMode : EditorType.SPLIT,
+    onSetActive: (active) => {
+      deleteQuery('input');
+      persist(active, 'mode');
+    },
   });
 
   return (
     <>
-      <PageConstructorProvider theme={'light'}>
+      <PageConstructorProvider theme={Theme.Light}>
         <PageConstructor
-            navigation={navigation}
-            custom={{
-              navigation: {
-                controls: () => (
-                    <Header items={items} activeTab={activeTab} handleSetInputAreaTabActive={handleSetInputAreaTabActive}/>
-                ),
+          navigation={navigation as NavigationData}
+          custom={{
+            navigation: {
+              controls: () => (
+                <Header
+                  items={items}
+                  activeTab={activeTab}
+                  handleSetInputAreaTabActive={handleSetInputAreaTabActive}
+                />
+              ),
+            },
+            blocks: {
+              page: () => <Playground>{mode[activeTab].node}</Playground>,
+            },
+          }}
+          content={{
+            blocks: [
+              {
+                type: 'page',
+                resetPaddings: true,
               },
-              blocks: {
-                page: () => (
-                    <Playground persistRestore={true}>
-                      {mode[activeTab].node}
-                    </Playground>
-                ),
-              },
-            }}
-            content={{
-              blocks: [
-                {
-                  type: 'page',
-                  resetPaddings: true,
-                },
-              ],
-            }}
+            ],
+          }}
         />
       </PageConstructorProvider>
     </>

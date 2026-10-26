@@ -8,17 +8,13 @@
     max-height: calc(100vh - 230px);
   }
 
-  .pc-device-emulation-mobile__frame_device_tablet {
-    height: 100%;
-  }
-
-  .pc-device-emulation-mobile__frame_device_mobile {
-    height: 100%;
+  .pc-device-emulation-mobile__frame {
+    height: calc(100vh - 230px);
   }
 
   --g-tabs-item-height: 100%;
 
-  .g-tabs__item-title {
+  .g-tabs-legacy__item-title {
     font-size: var(--g-text-body-2-font-size);
   }
 

@@ -1,4 +1,6 @@
-import {Card, Tabs, TabsProps, TextArea} from '@gravity-ui/uikit';
+import {Card, TextArea} from '@gravity-ui/uikit';
+import {Tabs, TabsProps} from '@gravity-ui/uikit/legacy';
+import '@gravity-ui/markdown-editor/styles/yc-table.css';
 
 export type OutputAreaProps = {
   handleSelectTab: (active: string) => void;
@@ -10,11 +12,7 @@ export type OutputAreaProps = {
 };
 
 function OutputArea(props: OutputAreaProps) {
-  let {output, tabItems, tabActive, handleSelectTab, handleInputChange} = props;
-
-  if (!handleInputChange) {
-    handleInputChange = () => {};
-  }
+  const {output, tabItems, tabActive, handleSelectTab, handleInputChange = () => {}} = props;
 
   return (
     <div className="output">

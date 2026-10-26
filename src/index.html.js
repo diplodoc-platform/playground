@@ -1,16 +1,4 @@
-function generateHTML({env, jspath, csspath} = {}) {
-  if (!env) {
-    env = 'development';
-  }
-
-  if (!jspath) {
-    jspath = 'index.js';
-  }
-
-  if (!csspath) {
-    csspath = '/index.css';
-  }
-
+const generateHTML = ({env = 'development', jspath = 'index.js', csspath = '/index.css'} = {}) => {
   return `\
 <!doctype html>
 <html lang="en">
@@ -24,7 +12,8 @@ function generateHTML({env, jspath, csspath} = {}) {
         <!-- End Google Tag Manager -->
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <title>playground</title>${
+        <title>Playground | Diplodoc</title>
+        <link rel="icon" type="image/x-icon" href="https://storage.yandexcloud.net/diplodoc-www-assets/favicon/favicon.ico"/>${
           env === 'development'
             ? `
         <script>
@@ -47,7 +36,7 @@ function generateHTML({env, jspath, csspath} = {}) {
     </body>
 </html>
 `;
-}
+};
 
 module.exports = {generateHTML};
 exports.default = {generateHTML};

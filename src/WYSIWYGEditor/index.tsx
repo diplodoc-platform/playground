@@ -1,61 +1,38 @@
-import React, {useEffect, useState} from 'react';
-import {cloneDeep} from 'lodash';
+import {useEffect, useState} from 'react';
+import {MarkdownEditorView, useMarkdownEditor} from '@gravity-ui/markdown-editor';
+import {Toaster, ToasterComponent, ToasterProvider} from '@gravity-ui/uikit';
 
-import {
-  BasePreset,
-  BehaviorPreset,
-  Extension,
-  MarkdownBlocksPreset,
-  MarkdownMarksPreset,
-} from '@doc-tools/yfm-editor';
-import {YfmEditorView, useYfmEditor, wysiwygToolbarConfigs, markupToolbarConfigs} from '@doc-tools/yfm-editor/bundle';
-import {Toaster} from "@gravity-ui/uikit";
+import {deleteQuery, persist, prefill} from 'src/utils';
 
-import {deleteElementById, deleteQuery, persist, prefill} from 'src/utils';
-import {YfmPreset} from "src/WYSIWYGEditor/yfmPreset";
-
-function WYSIWYGEditor({}) {
-  const toaster = new Toaster();
-  const wToolbarConfig = cloneDeep(wysiwygToolbarConfigs.wToolbarConfig);
-  const mToolbarConfig = cloneDeep(markupToolbarConfigs.mToolbarConfig);
-  const wToolbarConfigWithoutColor = deleteElementById(wToolbarConfig, 'colorify')
-  const mToolbarConfigWithoutColor = deleteElementById(mToolbarConfig, 'colorify')
-
-  const [input, setInput] = useState(prefill() || '');
-
-  if(input){
-    persist(input)
-  } else {
-    deleteQuery('input')
-  }
-
-  const extensions = React.useMemo<Extension>(
-    () => (builder) =>
-      builder
-        .use(BasePreset, {})
-        .use(BehaviorPreset, {})
-        .use(MarkdownBlocksPreset, {image: false, heading: false})
-        .use(MarkdownMarksPreset, {})
-        .use(YfmPreset, {}),
-    [],
-  );
-
-
-  const editor = useYfmEditor({
-    linkify: true,
-    allowHTML: false,
-    extensions,
-    initialMarkup: input,
-    initialToolbarVisible: true,
-    initialEditorType: 'wysiwyg',
+function WYSIWYGEditor() {
+  const [toaster] = useState(() => new Toaster());
+  const [initialMarkup] = useState(() => prefill());
+  const editor = useMarkdownEditor({
+    preset: 'yfm',
+    md: {linkify: true, html: false},
+    initial: {markup: initialMarkup, toolbarVisible: true, mode: 'wysiwyg'},
   });
 
   useEffect(() => {
-    editor.on('change', () => persist(editor.getValue()));
-    setInput(editor.getValue())
-  }, [input])
+    const handleChange = () => {
+      const value = editor.getValue();
+      if (value) {
+        persist(value);
+      } else {
+        deleteQuery('input');
+      }
+    };
 
-  return <YfmEditorView autofocus editor={editor} toaster={toaster} wysiwygToolbarConfig={wToolbarConfigWithoutColor} markupToolbarConfig={mToolbarConfigWithoutColor}/>;
+    editor.on('change', handleChange);
+    return () => editor.off('change', handleChange);
+  }, [editor]);
+
+  return (
+    <ToasterProvider toaster={toaster}>
+      <MarkdownEditorView autofocus stickyToolbar editor={editor} />
+      <ToasterComponent />
+    </ToasterProvider>
+  );
 }
 
 export default WYSIWYGEditor;

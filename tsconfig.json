@@ -3,7 +3,6 @@
   "compilerOptions": {
     "allowJs": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
     "target": "ES2020",
     "resolveJsonModule": true,
     "importHelpers": true,
@@ -11,8 +10,14 @@
     "incremental": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "src/*": ["./src/*"]
+    },
+    "types": ["node"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "tests/**/*.ts"],
   "exclude": ["node_modules"]
 }

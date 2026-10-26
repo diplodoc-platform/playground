@@ -28,18 +28,19 @@ const {generateHTML} = require('../src/index.html.js');
 
   await writeFile(path.join(outdir, 'index.html'), html);
 
-  let ctx;
-
-  ctx = await esbuild.context(
+  const ctx = await esbuild.context(
     configs.ts({
       entryPoints: ['src/index.tsx'],
       outdir,
     }),
   );
 
-  let {host, port} = await ctx.serve({
+  await ctx.watch();
+
+  const {port} = await ctx.serve({
+    host: '127.0.0.1',
     servedir: outdir,
   });
 
-  console.log(`http://${host}:${port}`);
+  console.log(`http://localhost:${port}`);
 })();
